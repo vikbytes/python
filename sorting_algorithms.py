@@ -185,7 +185,7 @@ def test_suite(array, sorted_array):
         start = timer()
         if x(temp) == sorted_array:
             end = timer()
-            print(f"{x} PASSED the test, and took {end-start:0.3f}s to sort the array.")
+            print(f"{x} PASSED the test, and took {end-start:1.4f}s to sort the array.")
         else:
             print(f"{x} FAILED the test.")
 
@@ -193,6 +193,9 @@ def test_suite(array, sorted_array):
 new_array = generate_array(4096)
 # Use the built-in 'sorted' method from Python standard library to sort the new array
 # in order to have a sorted array to compare the implemented algorithms with.
+start = timer()
 new_sorted_array = sorted(new_array)
+end = timer()
+print(f"The built in sorted method took {end-start:1.4f}s to sort the array.")
 # Test the algorithm implementations by running the test suite.
 test_suite(new_array, new_sorted_array)
